@@ -1,0 +1,98 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic);
+body{font-family:Lato,sans-serif;}
+h1,h2,h3,h4{
+  font-family: Titillium Web;
+}
+$header-color:#696969;
+$main-color:#00C0F2;
+$dark-color:#333;
+$l-size:24px;
+$n-size:16px;
+$s-size:14px;
+nav{
+  .navbar-brand{
+    img{
+      width: 130px;
+    }
+  }
+  .navbar-nav{
+    li{
+      a{
+        font-weight: bold;
+        color: $main-color;
+      }
+    }
+  }
+}
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  .carousel-caption{
+    // background: red;
+    top: 30%;
+  }
+}
+// book-now
+.book-now{
+  background: #dcedf1;
+  h2{
+    font-weight: 900;
+    color: $dark-color;
+    font-size: $l-size * 2;
+    text-transform: uppercase;
+  }
+  .why-choose{
+    h3{
+      color: $header-color;
+      font-weight: bold;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #c6d5d8;
+    }
+  }
+  .banner-form-outer{
+    background: #fff;
+    border: 1px solid $header-color;
+    padding: 40px 10px;
+    box-shadow: 4px 4px 4px 4px #333;
+ .banner-form{
+   ul{
+     li{
+       margin-bottom: 15px;
+       input, select{
+        width: 90%;
+        padding: 10px;
+       }
+     }
+   }
+
+ }
+}
+}
+// end book-now
+//howToBook
+.howToBook{
+  h2{
+    font-weight: 900;
+    color: $dark-color;
+    font-size: $l-size * 2;
+    text-transform: uppercase;
+  }
+}
+// end howToBook
+// footer
+.footer {
+  background: #333333;
+  p {
+    color: #fff;
+    a{
+      color:$main-color ;
+    }
+  }
+}
+// end footer
