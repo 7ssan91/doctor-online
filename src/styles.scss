@@ -106,6 +106,9 @@ nav {
   transition: .4s;
 }
 // select box
+.carousel-inner{
+  overflow: unset !important;
+}
 .carousel-item {
   height: 100vh;
   min-height: 350px;
@@ -114,6 +117,7 @@ nav {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+ 
   .carousel-caption {
     // background: red;
     color: #001430;
@@ -180,6 +184,7 @@ nav {
 }
 // book-now
 .book-now {
+  padding: 80px;
   background: #dcedf1;
   h2 {
     font-weight: 900;
@@ -208,6 +213,51 @@ nav {
   }
 }
 // end howToBook
+// Download App
+.downloadApp{
+  background: url(../src/assets/imgs/download_app.png) center center no-repeat;
+  height: 490px;
+  color: #fff;
+  h2{
+    font-size: 50px;
+  }
+  img{
+    margin: -80px 0;
+  }
+}
+//end of Download App
+// newsletter
+.newsletter {
+  padding: 80px 0;
+  background: #f7fbff;
+  }
+  
+  .newsletter .content {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2; }
+  .newsletter .content h2 {
+  color: #001430;
+  margin-bottom: 40px; }
+  .newsletter .content .form-control {
+  height: 50px;
+  border-color: #ffffff;
+  border-radius:0;
+  }
+  .newsletter .content.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #001430;
+  }
+  .newsletter .content .btn {
+  min-height: 50px; 
+  border-radius:0;
+  background: #001430;
+  color: #fff;
+  font-weight:600;
+  }
+//end newsletter
 // footer
 .footer {
   background: #001430;
@@ -221,6 +271,7 @@ nav {
 // end footer
 @media only screen and (max-width: 600px) {
   .carousel-item {
+    background-position: right;
 h2{
   font-size: 20px;
 }
