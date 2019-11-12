@@ -1,30 +1,71 @@
 <!-- NAVIGATION -->
-<nav class="navbar navbar-expand-lg navbar-white bg-white static-top">
+<nav class="navbar navbar-default navbar-expand-lg navbar-white bg-white static-top">
     <div class="container">
       <a class="navbar-brand" href="#">
             <img src="../../../assets/imgs/logo-website.png" alt="">
           </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <button (click)="display1 = true"  pButton icon="pi pi-list" class="custom-toggler navbar-toggler" type="button">
+            <!-- <span class="navbar-toggler-icon"></span> -->
           </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <p-sidebar [(visible)]="display1" position="left">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Login
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Sign up</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"(click)="showDialog()">Appointment</a> 
+                  </li>
+                </ul>
+          </p-sidebar>
+      <div class="collapse navbar-collapse" >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="#">Login
                   <span class="sr-only">(current)</span>
                 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Sign up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#">Contact us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a> 
+            <a class="nav-link"(click)="showDialog()">Appointment</a> 
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <p-dialog [style]="{width: '30vw'}" [(visible)]="display" [transitionOptions]="'6ms'" position='top' modal='true'>
+    <div class="appointment-dialog">
+
+        <label for="inp" class="inp">
+            <input type="text" id="inp" placeholder="&nbsp;">
+            <span class="label">Label</span>
+            <span class="border"></span>
+          </label>
+          <div class="form-group">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="form-group">
+                  <label for="email">Email address:</label>
+                  <input type="email" class="form-control" id="email">
+                </div>  
+                <button pButton label='click'></button>
+    </div> 
+  </p-dialog>
   <!-- END OF NAVIGATION -->

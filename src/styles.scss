@@ -1,30 +1,111 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,400italic,700,700italic);
+@import url(
+  http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic);
-body{font-family:Lato,sans-serif;}
-h1,h2,h3,h4{
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body {
+  font-family: Lato, sans-serif;
+}
+h1,
+h2,
+h3,
+h4 {
   font-family: Titillium Web;
 }
-$header-color:#696969;
-$main-color:#00C0F2;
-$dark-color:#333;
-$l-size:24px;
-$n-size:16px;
-$s-size:14px;
-nav{
-  .navbar-brand{
-    img{
-      width: 130px;
+$header-color: #696969;
+$main-color: #00c0f2;
+$dark-color: #001430;
+$l-size: 24px;
+$n-size: 16px;
+$s-size: 14px;
+nav {
+  .navbar-brand {
+    img {
+      width: 95px;
     }
   }
-  .navbar-nav{
-    li{
-      a{
+  .navbar-nav {
+    li {
+      a {
         font-weight: bold;
-        color: $main-color;
+        color: #001430;
       }
     }
   }
 }
+// input design
+.inp {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 16px;
+    color: #9098a9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+  }
+  .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #0077ff;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
+  }
+  input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+    &:hover {
+      background: rgba(#223254, 0.03);
+    }
+    &:not(:placeholder-shown) {
+      + span {
+        color: #5a667f;
+        transform: translateY(-26px) scale(0.75);
+      }
+    }
+    &:focus {
+      background: none;
+      outline: none;
+      + span {
+        color: #0077ff;
+        transform: translateY(-26px) scale(0.75);
+      }
+      + .border {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+.custom-dropdown{
+  border: 1px solid $main-color;
+  padding: 10px 5px;
+  border-radius: 28px;
+  i{
+    padding: 0 5px;
+  }
+}
+.dropdown.show{
+  transition: .4s;
+}
+// select box
 .carousel-item {
   height: 100vh;
   min-height: 350px;
@@ -33,51 +114,93 @@ nav{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  .carousel-caption{
+  .carousel-caption {
     // background: red;
-    top: 30%;
+    color: #001430;
+    top: 15%;
+    left: 40px;
+  }
+  h2 {
+    text-align: left;
+  }
+}
+.form-header {
+  background: #fff;
+  display: inline-flex;
+  float: left;
+  padding: 10px;
+  border-radius: 28px;
+  border: 1px solid $main-color;
+  &:before{
+    background: rgba(0, 0, 0, 0) url("../src/assets/imgs/banner-shape.png") no-repeat scroll 0 0;
+    top: 87.5%;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+  }
+  .ui-inputtext {
+    border: none;
+    border-right: 1px solid #ddd;
+    border-radius: 0%;
+  }
+  .ui-dropdown{
+    border: none;
+  }
+  .ui-calendar-button {
+    background: transparent;
+    color: #001430;
+    border: none;
+    &:enabled:hover {
+      background: transparent;
+      color: #001430;
+    }
+  }
+  button {
+    border-radius: 50%;
+    background: $main-color;
+    color: #fff;
+  }
+}
+.banner-form-outer {
+  border: 1px solid $header-color;
+  .banner-form {
+    ul {
+      li {
+        margin-bottom: 15px;
+        input,
+        select {
+          // width: 90%;
+          padding: 10px;
+        }
+      }
+    }
   }
 }
 // book-now
-.book-now{
+.book-now {
   background: #dcedf1;
-  h2{
+  h2 {
     font-weight: 900;
     color: $dark-color;
     font-size: $l-size * 2;
     text-transform: uppercase;
   }
-  .why-choose{
-    h3{
+  .why-choose {
+    h3 {
       color: $header-color;
       font-weight: bold;
       padding-bottom: 10px;
       border-bottom: 1px solid #c6d5d8;
     }
   }
-  .banner-form-outer{
-    background: #fff;
-    border: 1px solid $header-color;
-    padding: 40px 10px;
-    box-shadow: 4px 4px 4px 4px #333;
- .banner-form{
-   ul{
-     li{
-       margin-bottom: 15px;
-       input, select{
-        width: 90%;
-        padding: 10px;
-       }
-     }
-   }
-
- }
-}
 }
 // end book-now
 //howToBook
-.howToBook{
-  h2{
+.howToBook {
+  background: #f7fbff;
+  h2 {
     font-weight: 900;
     color: $dark-color;
     font-size: $l-size * 2;
@@ -87,12 +210,61 @@ nav{
 // end howToBook
 // footer
 .footer {
-  background: #333333;
+  background: #001430;
   p {
     color: #fff;
-    a{
-      color:$main-color ;
+    a {
+      color: $main-color;
     }
   }
 }
 // end footer
+@media only screen and (max-width: 600px) {
+  .carousel-item {
+h2{
+  font-size: 20px;
+}
+.carousel-caption{
+  top: 5%;
+  left: 65px;
+}
+.form-header{
+  border: none;
+  background: transparent;
+  .form-control{
+    background: #fff;
+  }
+  .ui-calendar{
+    margin-top: 5px;
+    background: #fff;
+    border-right:none !important;
+  }
+  .ui-button-icon-only .ui-button-icon-left{
+    left: 50px;
+  }
+  .btn-search{
+    border-radius: 24px;
+    width: 100%;
+    margin-top: 5px;
+    &:before{
+      content: "Search ";
+    }
+  }
+  .mob-form,.ui-dropdown {
+    width: 235px;
+    margin-top: 5px;
+    background: #fff;
+  }
+}
+}
+.custom-toggler{
+  position: absolute;
+  right: 15px;
+  background: transparent !important;
+  color: #001430 !important;
+  border-color: #001430 !important;
+}
+.howToBook h2{
+  font-size: 40px;
+}
+}

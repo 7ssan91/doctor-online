@@ -1,111 +1,47 @@
 <header>
-        <div id="homeCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('../assets/imgs/banner3.jpg')">
-                    <div class="carousel-caption">
-                        <h2 class="display-4 font-weight-bold">We Care <br> About Your Health</h2>
-                        <p class="lead">Finding a Doctor in Egypt has never been easier</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- GET APPOINMENT -->
-    <section class="book-now pt-5 pb-5">
-        <div class="container">
-            <h2 class="text-center">Get Appointment</h2>
-            <div class="row ">
-                <div class="col-sm-6 col-md-7 col-xs-12">
-                    <div class="why-choose">
-                        <h3>Why choose us?</h3>
-                        <ul>
-                            <li>
-                                <label>Aenean sollicitudin</label>
-                                <p>Biben dum auc nisi elit. co equat ipsum, nec sagittis sem nibh id elit.</p>
-                            </li>
-                            <li>
-                                <label>Duis sed odio sit amet</label>
-                                <p>Biben dum auc nisi elit. co equat ipsum, nec sagittis sem nibh id elit.</p>
-                            </li>
-                            <li>
-                                <label>Nam nec tellus a odio</label>
-                                <p>Biben dum auc nisi elit. co equat ipsum, nec sagittis sem nibh id elit.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-xs-12">
+    <div id="homeCarousel" class="carousel slide" @slide data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('../assets/imgs/banner3.jpg')">
+                <div class="carousel-caption text-left">
+                    <p>All doctors are waiting for you...</p>
+                    <h2 class="display-4 font-weight-bold">Search Your Doctor,<br>
+                            Make an appointment</h2>
                     <!-- FORM -->
-                    <div class="banner-form-outer text-center">
-                        <div class="banner-form">
-                            <span>100% Satisfaction Guarantee</span>
-                            <h3 class='font-weight-bold'>Book online</h3>
-                            <form id="theform" method="post">
-                                <ul class='list-unstyled'>
-                                    <li>
-                                        <select class="selectpicker" name="type">
-                                            <option id="null">Select Speciality</option>
-                                            <option>Lasik Eye</option>
-                                            <option>Invisalign</option>
-                                            <option>Cosmetic Surgery</option>
-                                        </select>
-                                    </li>
-                                    <li>
-                                        <select class="selectpicker" name="type">
-                                            <option id="null">Choose City</option>
-                                            <option>City1</option>
-                                            <option>City 2</option>
-                                            <option>City 3</option>
-                                        </select>
-                                    </li>
-                                    <li>
-                                        <select class="selectpicker" name="type">
-                                            <option id="null">Choose Area</option>
-                                            <option>Area 1</option>
-                                            <option>Area 2</option>
-                                            <option>Area 3</option>
-                                        </select>
-                                    </li>
-                                    <li>
-                                        <h3>OR</h3>
-                                    </li>
-                                    <li>
-                                        <input type="text" placeholder="Type Doctor Name" name="TypeDoctor">
-                                    </li>
-                                </ul>
-                                <button class="btn btn-rounded btn-danger btn-l"> <i
-                                        class="fa fa-search pr-3"></i>Search</button>
-                            </form>
-                        </div>
+                    <div class="form-inline form-header mt-5">
+                         <input type="text" pInputText placeholder="Doctor Name" class='mob-form'/>
+                          <!-- <input type="date" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username"> -->
+                          <p-calendar class='mob-form' [style]="{'border-right': '1px solid #ddd'}" [(ngModel)]="date3" placeholder="Select Date" dateFormat="dd/mm/yy" [showIcon]="true"></p-calendar>
+                          <p-dropdown [options]="cities" [(ngModel)]="selectedCity" [filter]='true'></p-dropdown>
+                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                     </div>
-                    <!-- END OF FORM-->
+                <!-- END OF FORM-->
                 </div>
             </div>
         </div>
-    </section>
-    <!-- END OF GET APPOINMENT -->
-    <!-- how to book -->
-    <section class="howToBook pt-5 pb-5 text-center">
-        <div class="container margin-top-20">
-            <h2>How To Book?</h2>
-            <div class="row mb-30">
-                <div class="col-lg-4">
-                    <img src="../assets/imgs/doctor.png" style="height: 100px;" alt="">
-                    <h3 class="font-weight-bold">Search</h3>
-                    <p>By Specialty, area,doctor name or Fees</p>
+    </div>
+</header>
+<!-- how to book -->
+<section class="howToBook pt-5 pb-5 text-center">
+    <div class="container margin-top-20">
+        <h2>How it work</h2>
+        <div class="row mb-30">
+            <div class="col-lg-4">
+                <img src="../assets/imgs/doctor.png" style="height: 100px;" alt="">
+                <h3 class="font-weight-bold">Search</h3>
+                <p>By Specialty, area,doctor name or Fees</p>
+            </div>
+            <div class="col-lg-4">
+                    <img src="../assets/imgs/doctors.png" style="height: 100px;" alt="">
+                    <h3 class="font-weight-bold">Compare & Choose</h3>
+                    <p>Based on real patients reviews</p>
                 </div>
                 <div class="col-lg-4">
-                        <img src="../assets/imgs/doctors.png" style="height: 100px;" alt="">
-                        <h3 class="font-weight-bold">Compare & Choose</h3>
-                        <p>Based on real patients reviews</p>
+                        <img src="../assets/imgs/appointment-book.png" style="height: 100px;" alt="">
+                        <h3 class="font-weight-bold">Book your appointment</h3>
+                        <p>Pay at the clinic at no extra cost</p>
                     </div>
-                    <div class="col-lg-4">
-                            <img src="../assets/imgs/appointment-book.png" style="height: 100px;" alt="">
-                            <h3 class="font-weight-bold">Book your appointment</h3>
-                            <p>Pay at the clinic at no extra cost</p>
-                        </div>
-            </div>
         </div>
-    </section>
-    <!-- how to book -->
+    </div>
+</section>
+<!-- how to book -->
