@@ -2,11 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {CalendarModule} from 'primeng/calendar';
 import {TabViewModule} from 'primeng/tabview';
 import {FormsModule} from '@angular/forms';
@@ -15,6 +17,14 @@ import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
 import {SidebarModule} from 'primeng/sidebar';
+import { StorageService } from 'src/services/core/storage.service';
+import { BaseService } from 'src/services/core/base.service';
+import { LocalService } from 'src/services/core/local.service';
+import { APIService } from 'src/services/core/api.service';
+import { EncrypthelperService } from 'src/services/core/encrypthelper.service';
+import { HomeService } from 'src/services/home/home.service';
+import { CoreService } from 'src/services/core/core.service';
+import { HttpErrorHandlerService } from 'src/services/core/http-error-handler.service';
 
 
 @NgModule({
@@ -32,9 +42,12 @@ import {SidebarModule} from 'primeng/sidebar';
     TabViewModule,
     CalendarModule,
     DialogModule,
+    HttpClientModule,
     ButtonModule,DropdownModule,InputTextModule,SidebarModule
   ],
-  providers: [],
+  providers: [
+    StorageService,BaseService,LocalService,APIService,EncrypthelperService,HomeService,CoreService,HttpErrorHandlerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
