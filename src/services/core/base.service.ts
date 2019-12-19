@@ -48,7 +48,9 @@ export class BaseService {
       this.country.next(country);
       this.storage.set(storageKeys.country, JSON.stringify(country)).then();
   }
-
+  goToLink(url: string){
+    window.open(url, "_blank");
+    }
 
   translate(en, ar = '') {
       if (ar) {

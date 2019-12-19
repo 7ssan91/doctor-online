@@ -25,6 +25,11 @@ import { EncrypthelperService } from 'src/services/core/encrypthelper.service';
 import { HomeService } from 'src/services/home/home.service';
 import { CoreService } from 'src/services/core/core.service';
 import { HttpErrorHandlerService } from 'src/services/core/http-error-handler.service';
+import { DoctorsService } from 'src/services/doctor/doctor.service';
+import { DoctorslistComponent } from './doctorslist/doctorslist.component';
+import { FilterComponent } from './shared/filter/filter.component';
+import {RatingModule} from 'primeng/rating';
+import { DoctorviewComponent } from './doctorview/doctorview.component'
 
 
 @NgModule({
@@ -32,7 +37,10 @@ import { HttpErrorHandlerService } from 'src/services/core/http-error-handler.se
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    DoctorslistComponent,
+    FilterComponent,
+    DoctorviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,13 +49,26 @@ import { HttpErrorHandlerService } from 'src/services/core/http-error-handler.se
     BrowserAnimationsModule,
     TabViewModule,
     CalendarModule,
-    DialogModule,
+    DialogModule,RatingModule,
     HttpClientModule,
     ButtonModule,DropdownModule,InputTextModule,SidebarModule
   ],
   providers: [
-    StorageService,BaseService,LocalService,APIService,EncrypthelperService,HomeService,CoreService,HttpErrorHandlerService
+    StorageService,BaseService,LocalService,APIService,EncrypthelperService,HomeService,CoreService,
+    HttpErrorHandlerService, DoctorsService,
+    { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
+    { provide: 'SessionStorage', useFactory: getSessionStorage },
+  ],
+  exports:[
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function getLocalStorage() {
+  return (typeof window !== "undefined") ? window.localStorage : null;
+}
+
+export function getSessionStorage() {
+  return (typeof window !== "undefined") ? window.sessionStorage : null;
+}

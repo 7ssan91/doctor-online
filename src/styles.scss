@@ -11,7 +11,8 @@ h3,
 h4 {
   font-family: Titillium Web;
 }
-$header-color: #696969;
+$gray-color: #696969;
+$gray-white-color:#ddd;
 $main-color: #00c0f2;
 $dark-color: #001430;
 $l-size: 24px;
@@ -31,6 +32,13 @@ nav {
       }
     }
   }
+}
+//icons of doctor
+.doc-icon{
+  margin-right: 10px;
+  color: $main-color;
+  border-bottom: 3px solid #DEB183;
+  padding-bottom: 3px;
 }
 // input design
 .inp {
@@ -168,7 +176,7 @@ nav {
   }
 }
 .banner-form-outer {
-  border: 1px solid $header-color;
+  border: 1px solid $gray-color;
   .banner-form {
     ul {
       li {
@@ -194,7 +202,7 @@ nav {
   }
   .why-choose {
     h3 {
-      color: $header-color;
+      color: $gray-color;
       font-weight: bold;
       padding-bottom: 10px;
       border-bottom: 1px solid #c6d5d8;
@@ -319,3 +327,161 @@ h2{
   font-size: 40px;
 }
 }
+// filter
+.filter{
+  background: #F1F1F1;
+  padding: 15px 0;
+  .container{
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #ddd;
+  }
+  .dropdown{
+    &:first-child{
+      .dropdown-toggle{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+  .dropdown-label{
+    font-size: 12px;
+    color: $gray-color;
+  }
+  .search-input{
+    padding: 5px 10px;
+  }
+  .dropdown-toggle,.search-input{
+    background: #fff;
+    color: $main-color;
+    border: 1px solid $gray-white-color;
+    border-radius: 0;
+    &:after{
+    position: absolute;  
+    margin-left:0;
+    right: 10px;
+    }
+    &:focus{
+      animation: fadeIn .6s  linear;
+    }
+    i{
+      color: $main-color;
+      padding-right: 5px;
+    }
+    input{
+      border: none;
+      &:focus{
+        box-shadow: none;
+        border: none;
+        outline: 0;
+      }
+      &::placeholder{
+        color: $main-color;
+      }
+    }
+   
+  }
+}
+.show > .btn-outline-secondary.dropdown-toggle:focus,.btn-outline-secondary:focus{
+  box-shadow: none;
+}
+.btn-outline-secondary:not(:disabled):not(.disabled):active{
+  background: #fff;
+  color: #333;
+}
+}
+.search-btn{
+  .btn{
+    height: 62px;
+    border-color: $dark-color;
+    border-radius: 0;
+    font-size: 18px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: $dark-color;
+    color: #fff;
+    i{
+      padding-right: 5px;
+      font-weight: bold;
+    }
+  }
+}
+// end filter
+//doctor page
+.doctorList{
+  background: #E2E6EA;
+  .doctor{
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    color: $dark-color;
+    &:hover{
+      text-decoration: none;
+      background: #E5F0FA;
+    }
+    .doctor-details{
+      .h2{
+        font-weight: 600;
+        color: $main-color;
+        font-size: 20px;
+        text-transform: capitalize;
+      }
+      span{
+        color: $main-color;
+        font-size: 16px;
+        text-transform: capitalize;
+      }
+      .desc{
+        color: $gray-color;
+        font-weight: 500;
+      }     
+    }
+}
+}
+.ui-rating-icon{
+  color: #FFB624;
+  font-size: 22px;
+}
+//end doctor page
+// start doctor profile view
+.profile{
+  .bg-profile{
+    background-color: #E5F0FA;
+    padding: 20px;
+    .profile-img{
+      img{
+        border: 3px solid $gray-color;
+      }
+    }
+  }
+  .profile-data{
+    padding: 25px 0;
+    .h3{
+      padding: 15px;
+      box-shadow: 2px 2px 2px #ddd;
+      background: #E5F0FA;
+      color: $dark-color;
+    }
+    p{
+      padding: 15px;
+    }
+    .service{
+      .active{
+        background: $dark-color;
+        color: #fff;
+        border: $dark-color;
+      }
+    }
+  }
+  .btn-map{
+    padding: 5px;
+    color: $dark-color;
+    border-color: $dark-color;
+    border-radius: 10px;
+    &:hover{
+      transition: .4s;
+      background: $dark-color;
+      color: #fff;
+    }
+  }
+}
+// end doctor profile view

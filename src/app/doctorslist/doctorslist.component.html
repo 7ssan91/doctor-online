@@ -1,0 +1,24 @@
+<filter></filter>
+<div class="doctorList">
+    <div class="container">
+            <div class="row" *ngFor='let item of doctors' >
+                <a class="row col-sm-12 doctor" [routerLink]="['/doctorview/',item.Id]" >
+                    <div class="col-sm-2 doctor-img">
+                        <img [src]='item.ProfileImage' alt="" class="rounded-circle img-fluid">
+                    </div>
+                    <div class="col-sm-10 row doctor-details">
+                        <span  class="col-sm-12">
+                            <span>{{item.JobTitle}}</span><a href="" onclick='return false;' class="h2">&nbsp;{{base.translate(item.NameEn,item.NameAr)}}</a>
+                        </span>
+                        <p class="col-sm-12 desc">{{base.translate(item.Description,item.DescriptionAr)}}</p>
+                        <p class="col-sm-12"><p-rating [(ngModel)]="item.Rate" [readonly]='true' [cancel]="false" ></p-rating></p>
+                        <p class="col-sm-6">Overall rating from {{item.RateCount}} visitors</p>
+                        <p class="col-sm-12 info"><i class="fas fa-stethoscope doc-icon fa-md"></i>{{item.JobTitle}} {{item.Info}} </p>
+                        <p class="col-sm-12"><i class="fas fa-map-marker-alt doc-icon fa-md"></i>{{base.translate(item.Address,item.AddressAr)}}</p>
+                        <p class="col-sm-6"><i class="fas fa-money-bill-wave-alt doc-icon fa-xs"></i>{{item.Fees}} {{base.translate('KD')}}</p>
+                        <p class="col-sm-6"><i class="far fa-clock doc-icon fa-xs"></i>{{base.translate('WTime')}} :{{item.Waitingtime}}</p>
+                    </div>
+                </a>
+            </div>        
+    </div>
+</div>

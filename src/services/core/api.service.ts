@@ -64,7 +64,7 @@ buildheaders(apivs: APIVS) {
           'userToken': _accessToken,
           'uniqID': this.base.getuniqID(),
           'lang': this._lang.toString(),
-          countryId: this.base.getcountry().Id.toString(),
+          countryId: "1"//this.base.getcountry().Id.toString(),
       };
   }
   else {
@@ -78,7 +78,7 @@ buildheaders(apivs: APIVS) {
           'device': '2',
           'version': this.appversion,
           'lang': this._lang.toString(),
-          countryId: this.base.getcountry().Id.toString(),
+          countryId: "1"//this.base.getcountry().Id.toString(),
       }
   }
   this._headeroptions = new HttpHeaders(headers);
