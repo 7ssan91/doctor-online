@@ -30,6 +30,10 @@ import { DoctorslistComponent } from './doctorslist/doctorslist.component';
 import { FilterComponent } from './shared/filter/filter.component';
 import {RatingModule} from 'primeng/rating';
 import { DoctorviewComponent } from './doctorview/doctorview.component'
+import { SpecialityService } from 'src/services/speciality/speciality.service';
+import { LoginComponent } from './login/login.component';
+import { UserService } from 'src/services/user/user.service';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -41,6 +45,8 @@ import { DoctorviewComponent } from './doctorview/doctorview.component'
     DoctorslistComponent,
     FilterComponent,
     DoctorviewComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,7 @@ import { DoctorviewComponent } from './doctorview/doctorview.component'
   ],
   providers: [
     StorageService,BaseService,LocalService,APIService,EncrypthelperService,HomeService,CoreService,
-    HttpErrorHandlerService, DoctorsService,
+    HttpErrorHandlerService, DoctorsService,SpecialityService,UserService,
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
     { provide: 'SessionStorage', useFactory: getSessionStorage },
   ],

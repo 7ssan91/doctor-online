@@ -102,16 +102,6 @@ export class DoctorsService extends CoreService {
             catchError(this.handleError('addAppointmentToDoctor', []))
         );
     }
-    getAllDoctors() {
-        return this.api.get<APIResult<Doctor[]>>(APIVS.V1, Apimethods.GetDoctors, {}).pipe(
-            map((res: APIResult<Doctor[]>) => {
-                if (res.IsSucsess) {
-                    return res.Result;
-                }
-            }),
-            catchError(this.handleError('getOffers', []))
-        );
-    }
 
     getOffers() {
         return this.api.get<APIResult<Offer[]>>(APIVS.V1, Apimethods.GetOffers, {}).pipe(
