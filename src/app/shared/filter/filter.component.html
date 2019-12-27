@@ -11,8 +11,9 @@
                          <span class='dropdown-label'>In this city</span> <br>
                          <i class="fas fa-search-location"></i> Choose city
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"  >
-                          <li class="dropdown-item" *ngFor="let cit of cities" (click)='selectCity(cit)' [value]="cit"> <a > {{base.translate(cit.NameEn,cit.NameAr)}}</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <!-- <li class="dropdown-item" (click)="selectCity({Id:-1,NameEn:'All Cities'})" > <a>All Cities</a> </li> -->
+                          <li class="dropdown-item" *ngFor="let cit of cities" (click)='selectCity(cit)'> <a > {{base.translate(cit.NameEn,cit.NameAr)}}</a></li>
                         </ul>
                       </div>
                       <div class="dropdown col-sm-3 p-0">
@@ -21,7 +22,8 @@
                          <i class="fas fa-search-location"></i> Choose area
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <li class="dropdown-item" *ngFor="let ar of selectedCity.Areas" (click)="selectArea(ar.Id)" >{{base.translate(ar.NameEn,ar.NameAr)}} {{ar.Id}}</li>
+                          <li class="dropdown-item" (click)="selectCity({Id:-1,NameEn:'All Areas'})"> <a>All Areas</a> </li>
+                          <li class="dropdown-item" *ngFor="let ar of selectedCity.Areas" (click)="selectArea(ar)">{{base.translate(ar.NameEn,ar.NameAr)}}</li>
                         </ul>
                       </div>
                       <div class="dropdown col-sm-3 p-0">
@@ -30,19 +32,20 @@
                          <i class="fas fa-stethoscope"></i> Choose Specialty
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <li class="dropdown-item" >{{base.translate(base.getSelectedArea().NameEn,base.getSelectedArea().NameAr)}}</li>
+                          <li class="dropdown-item" (click)="selectedspecialty={Id:-1}"> <a>All Specialities</a> </li>
+                          <li class="dropdown-item" *ngFor="let sp of specialities" (click)="selectedspecialty=sp">{{base.translate(sp.NameEn,sp.NameAr)}}</li>
                         </ul>
                       </div>
                       <div class="dropdown col-sm-3 p-0">
                         <div class="btn btn-outline-secondary search-input  w-100 text-left">
                          <span class='dropdown-label'>Or search by doctor name</span> <br>
-                         <i class="fas fa-user-md"></i> <input type='text' placeholder="Type doctor name">
+                         <i class="fas fa-user-md"></i> <input type='text' placeholder="Type doctor name" [(ngModel)]="searchKey">
                         </div>
                       </div>
                 </div>
             </div>
             <div class="col-sm-2 p-0 search-btn">
-              <button class="btn w-100 btn-outline-secondary"><i class="fas fa-search"></i>Search</button>
+              <button class="btn w-100 btn-outline-secondary" (click)="search()" ><i class="fas fa-search"></i>Search</button>
             </div>
         </div>
     </div>
