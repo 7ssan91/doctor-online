@@ -11,13 +11,20 @@ import { Doctor } from 'src/services/models/models';
   styleUrls: ['./doctorslist.component.scss']
 })
 export class DoctorslistComponent implements OnInit {
-  doctors:Doctor[]=[];
+  doctors =new Doctor();
+  allDoc:Doctor[]=[];
+  show:boolean=true;
   constructor(public base: BaseService, private route: Router, http: HttpClient,private doc:DoctorsService, private acroute:ActivatedRoute) {}
   ngOnInit() {
     this.doc.getDoctors().subscribe((data)=>{
-      this.doctors=data;
+      this.allDoc=data;
     })
   }
-
+  
+  search($event){
+    this.show=false
+    this.doctors= $event;
+    console.log(this.doctors)
+  }
 
 }

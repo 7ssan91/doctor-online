@@ -40,7 +40,29 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6">test</div>
+                <div class="col-sm-6">
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item" *ngFor="let item of dayslist">
+                            <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
+                                {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
+                            </button>
+                            </li>
+                     </ul>
+                     <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item" *ngFor="let item of dayslist2">
+                            <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
+                                {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
+                            </button>
+                            </li>
+                     </ul>
+                     <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item" *ngFor="let item of dayslist3">
+                            <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
+                                {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
+                            </button>
+                            </li>
+                     </ul>
+                </div>
             </div>
         </div>
     </div>

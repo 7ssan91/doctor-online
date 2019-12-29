@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-   register() {
+   async register() {
 
     if (this.ruser.username && this.ruser.password && this.ruser.email && this.ruser.fullname && this.ruser.phone) {
 

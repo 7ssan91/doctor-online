@@ -11,7 +11,7 @@ import { APIResult } from 'src/services/core/enums';
 })
 export class LoginComponent implements OnInit {
   cuser: any = { username: '', password: '' };
-  reigesterView: boolean = false;
+  // reigesterView: boolean = false;
   @Input() datemodel: dateModel;
 
   constructor( public base: BaseService,
@@ -19,8 +19,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  login() {
-
+  async login() {
     if (this.cuser.username && this.cuser.password) {
       this.user.Login(this.cuser).subscribe(async (data: APIResult<LoginResponse>) => {
         if (data.IsSucsess) {
