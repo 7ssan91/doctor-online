@@ -11,19 +11,19 @@ const routes: Routes = [
   { path: 'doctors', loadChildren: () => import('./doctorslist/doctorlist.module').then(m => m.DoctorlistPageModule) },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignupComponent },
-
+  { path: '**', redirectTo: '' , pathMatch:'full'  },
 ];
 
 
 const country: Routes = [
-  { path: '', redirectTo: 'en-kw/',pathMatch:"full" },
+  { path: '', redirectTo: 'en-kw' , pathMatch:'full'  },
   { path: 'ar-kw', children: routes },
   { path: 'en-kw', children: routes },
 
   { path: 'ar-eg', children: routes },
   { path: 'en-eg', children: routes },
 
-  { path: '**', redirectTo: 'en-kw/'  ,pathMatch:"full"},
+  { path: '**', redirectTo: 'en-kw' , pathMatch:'full' },
 ];
 
 
