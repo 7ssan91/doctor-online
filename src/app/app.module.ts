@@ -26,10 +26,8 @@ import { HomeService } from 'src/services/home/home.service';
 import { CoreService } from 'src/services/core/core.service';
 import { HttpErrorHandlerService } from 'src/services/core/http-error-handler.service';
 import { DoctorsService } from 'src/services/doctor/doctor.service';
-import { DoctorslistComponent } from './doctorslist/doctorslist.component';
 import { FilterComponent } from './shared/filter/filter.component';
 import {RatingModule} from 'primeng/rating';
-import { DoctorviewComponent } from './doctorview/doctorview.component'
 import { SpecialityService } from 'src/services/speciality/speciality.service';
 import { LoginComponent } from './login/login.component';
 import { UserService } from 'src/services/user/user.service';
@@ -42,9 +40,6 @@ import { SignupComponent } from './signup/signup.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    DoctorslistComponent,
-    FilterComponent,
-    DoctorviewComponent,
     LoginComponent,
     SignupComponent,
   ],
@@ -55,7 +50,7 @@ import { SignupComponent } from './signup/signup.component';
     BrowserAnimationsModule,
     TabViewModule,
     CalendarModule,
-    DialogModule,RatingModule,
+    DialogModule,
     HttpClientModule,
     ButtonModule,DropdownModule,InputTextModule,SidebarModule
   ],
@@ -71,6 +66,7 @@ import { SignupComponent } from './signup/signup.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
 export function getLocalStorage() {
   return (typeof window !== "undefined") ? window.localStorage : null;
 }

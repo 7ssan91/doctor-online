@@ -48,9 +48,12 @@ export class FilterComponent implements OnInit {
       Object.assign(this.citiesTemp, data);
     });
   }
+
   isSlectedArea(Id) {
-    return this.base.area.getValue().Id == Id;
+    return this.base.getArea().Id == Id;
   }
+
+
   selectCity(cit: City) {
     this.selectedCity = cit;
   }

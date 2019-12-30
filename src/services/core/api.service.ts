@@ -46,6 +46,8 @@ gethttpParms(params: Params): HttpParams {
 
   return paramsback;
 }
+
+
 buildheaders(apivs: APIVS) {
   var headers: CuHttpHeaders;
   this.setAPiSettings(apivs);
@@ -106,6 +108,9 @@ post<T>(apivs: APIVS, method: Apimethods, parms: any = {}, extrereplace = ''): O
 }
 
 }
+
+
+
 export enum APILink {
   livev1 = 'https://donline.emaogroup.com/api/',
   betav1 = 'https://donline.emaogroup.com/api/',

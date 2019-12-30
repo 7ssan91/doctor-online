@@ -14,24 +14,26 @@ export class LoginComponent implements OnInit {
   // reigesterView: boolean = false;
   @Input() datemodel: dateModel;
 
-  constructor( public base: BaseService,
+  constructor(public base: BaseService,
     private user: UserService) { }
 
   ngOnInit() {
   }
-  async login() {
+
+
+  login() {
     if (this.cuser.username && this.cuser.password) {
-      this.user.Login(this.cuser).subscribe(async (data: APIResult<LoginResponse>) => {
+      this.user.Login(this.cuser).subscribe((data: APIResult<LoginResponse>) => {
         if (data.IsSucsess) {
-         alert('success')
-         
+          // alert('success')
+
         } else {
-          alert('failed')
+          // alert('failed')
         }
       });
     }
-    // else {
-    //   this.base.showToast(this.base.translate('filllogin'));
-    // }
+  
   }
+
+
 }

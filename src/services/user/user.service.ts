@@ -37,7 +37,6 @@ export class UserService extends CoreService {
                     this.completeLoginInformation(res.Result);
                 }
                 return res;
-
             }),
             catchError(this.handleError('Login', []))
         );
