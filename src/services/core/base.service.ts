@@ -18,7 +18,10 @@ export class BaseService {
 
 
 
-
+    isLoggedIn():boolean
+    {
+        return this.storage.isLoggedIn();
+    }
 
     goToLink(url: string) {
         window.open(url, "_blank");
@@ -42,11 +45,11 @@ export class BaseService {
     }
 
     setAuthToken(data) {
-        this.storage.set(storageKeys.authToken, this.enc.encrypt(data));
+        this.storage.set(storageKeys.authToken, data);
     }
 
     setUserInformation(data) {
-        this.storage.set(storageKeys.userInformation, this.enc.encrypt(JSON.stringify(data)));
+        this.storage.set(storageKeys.userInformation, JSON.stringify(data));
     }
 
 

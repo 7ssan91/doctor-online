@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { DoctorslistComponent } from '../doctorslist/doctorslist.component'
 import { RatingModule } from 'primeng/rating';
-import { FilterComponent } from '../shared/filter/filter.component';
+import { AppSharedModule } from '../appshared.module';
 
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
     component: DoctorslistComponent
   },
   { path: 'search', component: DoctorslistComponent },
-  { path: 'doctorview', loadChildren: () => import('./doctorview/doctorview.module').then(m => m.DoctorviewPageModule) },
+  { path: ':Name', loadChildren: () => import('./doctorview/doctorview.module').then(m => m.DoctorviewPageModule) },
 
 ];
 
@@ -22,8 +22,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RatingModule,
+    AppSharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DoctorslistComponent,FilterComponent]
+  declarations: [DoctorslistComponent]
 })
 export class DoctorlistPageModule { }

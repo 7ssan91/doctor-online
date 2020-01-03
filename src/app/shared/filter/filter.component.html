@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-sm-2 p-0 search-btn">
-              <button class="btn w-100 btn-outline-secondary" (click)="search()" ><i class="fas fa-search"></i>Search</button>
+              <button class="btn w-100 btn-outline-secondary" [ladda]="isRequisting" (click)="search()" ><i class="fas fa-search"></i>Search</button>
             </div>
         </div>
     </div>

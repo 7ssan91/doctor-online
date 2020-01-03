@@ -4,13 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { DoctorslistComponent } from './doctorslist/doctorslist.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'doctors', loadChildren: () => import('./doctorslist/doctorlist.module').then(m => m.DoctorlistPageModule) },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: SignupComponent },
+  { path: 'login', component: LoginComponent ,canActivate:[AuthGuard] },
+  { path: 'register', component: SignupComponent ,canActivate:[AuthGuard]},
   { path: '**', redirectTo: '' , pathMatch:'full'  },
 ];
 

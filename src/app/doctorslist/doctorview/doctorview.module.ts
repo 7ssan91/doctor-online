@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { DoctorviewComponent } from './doctorview.component';
 import {RatingModule} from 'primeng/rating'
+import { AppSharedModule } from '../../../app/appshared.module';
 
 
 const routes: Routes = [
   {
-    path: ':Id',
+    path: '',
     component: DoctorviewComponent
   }
 ];
@@ -16,7 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,RatingModule,
+    FormsModule,RatingModule,AppSharedModule,
     RouterModule.forChild(routes)
   ],
   declarations: [DoctorviewComponent]

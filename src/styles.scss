@@ -27,7 +27,7 @@ $s-size: 14px;
   box-shadow: 1px 1px 1px 1px #ddd;
   .navbar-brand {
     img {
-      width: 100px;
+      width: 81px;
     }
   }
   .navbar-nav {
@@ -177,6 +177,13 @@ $s-size: 14px;
   }
 }
 // end book-now
+// start home-filter
+.home-filter{
+  padding: 30px;
+  position: relative;
+  top: 40%;
+}
+// end home-filter
 //howToBook
 .howToBook {
   h2 {
@@ -326,8 +333,6 @@ h2{
 }
 // filter
 .filter{
-  background: #F1F1F1;
-  padding: 15px 0;
   .container{
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px #ddd;
@@ -408,14 +413,16 @@ h2{
   a:hover{
     text-decoration: none;
   }
-  .doctor-img .img-fluid{
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 150px;
-    position: relative;
-    top: 10px;
-    width: 150px;
-    background-size: cover;
+  .doctor-img {
+    .img-fluid{
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 150px;
+      position: relative;
+      top: 10px;
+      width: 150px;
+      background-size: cover;
+    }
   }
   .doctor{
     background: #fff;
@@ -427,7 +434,7 @@ h2{
       text-decoration: none;
       background: #E5F0FA;
     }
-    .doctor-details{
+    .doctor-appointment{
       .h2{
         font-weight: 600;
         color: $main-color;
@@ -453,34 +460,53 @@ h2{
 //end doctor page
 // start doctor profile view
 .profile{
-  .bg-profile{
-    background-color: #E5F0FA;
-    padding: 20px;
-    .profile-img{
-      img{
-        border: 3px solid $gray-color;
-      }
-    }
-  }
-  .profile-data{
-    padding: 25px 0;
-    .h3{
-      padding: 15px;
-      box-shadow: 2px 2px 2px #ddd;
-      background: #E5F0FA;
-      color: $dark-color;
-    }
+  .about{
+    padding: 15px 30px;
     p{
-      padding: 15px;
-    }
-    .service{
-      .active{
-        background: $dark-color;
-        color: #fff;
-        border: $dark-color;
-      }
+      font-size: 18px;
     }
   }
+    .profile-details{
+      // background-color: #E5F0FA;
+      padding: 15px;
+      margin:20px 0;
+      .img-fluid{
+        height: 150px;
+        width: 150px;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    .profile-data{
+      margin: 20px 0;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      padding: 0;
+      .appointment-header{
+      h2{
+        background-color: $dark-color;
+        color: #fff;
+        padding: 15px;
+      }
+    }
+    
+      .h3{
+        padding: 15px;
+        box-shadow: 2px 2px 2px #ddd;
+        background: #E5F0FA;
+        color: $dark-color;
+      }
+      p{
+        padding: 15px;
+      }
+      .service{
+        .active{
+          background: $dark-color;
+          color: #fff;
+          border: $dark-color;
+        }
+      }
+    }
   .btn-map{
     padding: 5px;
     color: $dark-color;

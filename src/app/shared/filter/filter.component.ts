@@ -18,29 +18,30 @@ export class FilterComponent implements OnInit {
   doctors: Doctor[] = [];
   selectedArea: Area = new Area();
   selectedCity: City = new City();
-  @Output() public getUserData = new EventEmitter();
+  @Output() public filterFinished = new EventEmitter<boolean>();
+
   specialities: Specialities[] = [];
   selectedspecialty: Specialities =new Specialities();
   searchKey = "";
   area: Area = new Area();
+  areaId=-1;
+
+  isRequisting:boolean=false;
   specialitiesTemp?: Specialities[] = [];
   constructor(
     public base: BaseService,
     private home: HomeService,
     private sp: SpecialityService,
-    private route: Router,
-    http: HttpClient,
-    private doc: DoctorsService,
-    private acroute: ActivatedRoute
+    private doc: DoctorsService
   ) {}
 
   ngOnInit() {
     this.sp.getSpeciality().subscribe(data => {
       this.specialities = data;
     });
-    this.doc.getDoctors().subscribe(data => {
-      this.doctors = data;
-    });
+    // this.doc.getDoctors().subscribe(data => {
+    //   this.doctors = data;
+    // });
   }
   getCity() {
     this.home.getAvilableCities().subscribe(data => {
@@ -63,18 +64,13 @@ export class FilterComponent implements OnInit {
       this.specialities = data;
     });
   }
- dox:Doctor[]=[];
- areaId=-1;
   public search(data:Doctor[]){
-    // this.areaId = this.base.area.getValue().Id;
-    console.log( this.selectedArea.Id);
+    this.isRequisting=true;
     this.selectedArea.Id;
-
     this.doc.getDoctors(this.searchKey,this.selectedspecialty.Id,1,this.selectedArea.Id).subscribe((searchDoc)=>{
-      this.dox=searchDoc;
-      // console.log(this.dox)
-      this.getUserData.emit(this.dox);
-
+    this.isRequisting=false;
+     
+      this.filterFinished.emit(true);
     })
   }
 }

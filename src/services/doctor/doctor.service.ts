@@ -13,6 +13,9 @@ export class DoctorsService extends CoreService {
     public SelectedDoctor: BehaviorSubject<Doctor> = new BehaviorSubject<Doctor>(new Doctor());
     $SelectedDoctor = this.SelectedDoctor.asObservable();
 
+    public DoctorList: BehaviorSubject<Doctor[]> = new BehaviorSubject<Doctor[]>([]);
+    $DoctorList = this.DoctorList.asObservable();
+
     public SelectedDateModel: BehaviorSubject<dateModel> = new BehaviorSubject<dateModel>(new dateModel());
     $SelectedDateModel = this.SelectedDateModel.asObservable();
 
@@ -32,6 +35,7 @@ export class DoctorsService extends CoreService {
         }).pipe(
             map((res: APIResult<Doctor[]>) => {
                 if (res.IsSucsess) {
+                    this.DoctorList.next(res.Result);
                     return res.Result;
                 }
             }),

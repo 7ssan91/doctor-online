@@ -1,13 +1,17 @@
-import { Injectable, Inject } from '@angular/core';
-import { storageKeys, ILocale } from './enums';
-import { EncrypthelperService } from './encrypthelper.service';
-import { Area } from '../models/models';
+import { Injectable, Inject } from "@angular/core";
+import { storageKeys, ILocale } from "./enums";
+import { EncrypthelperService } from "./encrypthelper.service";
+import { Area, User } from "../models/models";
 
 @Injectable()
 export class StorageService {
-  className = 'StorageService';
+  className = "StorageService";
 
-  constructor(@Inject('LOCALSTORAGE') private localStorage: any, @Inject('SessionStorage') private sessionStorage: any, public enc: EncrypthelperService) { }
+  constructor(
+    @Inject("LOCALSTORAGE") private localStorage: any,
+    @Inject("SessionStorage") private sessionStorage: any,
+    public enc: EncrypthelperService
+  ) {}
 
   set(Id: storageKeys, Data: any, encrypt: boolean = true) {
     if (encrypt) {
@@ -16,9 +20,8 @@ export class StorageService {
     this.localStorage.setItem(Id, Data);
   }
 
-
   get(Id: storageKeys, decrypt: boolean = true): any {
-    let Data: any = '';
+    let Data: any = "";
     if (!!this.localStorage.getItem(Id)) {
       Data = this.localStorage.getItem(Id);
       if (decrypt) {
@@ -31,20 +34,22 @@ export class StorageService {
       }
     }
 
-
     return Data;
-
   }
 
-
-
   getArea() {
-    var are: Area = new Area()
+    var are: Area = new Area();
     if (!!this.get(storageKeys.area, false))
       are = JSON.parse(this.get(storageKeys.area, true));
     return are;
   }
 
+  getUserInformation() {
+    var are: User = new User();
+    if (!!this.get(storageKeys.userInformation, false))
+      are = JSON.parse(this.get(storageKeys.userInformation, true));
+    return are;
+  }
 
   getAuthtoken() {
     var bak: string = "";
@@ -53,6 +58,9 @@ export class StorageService {
     return bak;
   }
 
+  isLoggedIn() {
+    return this.getAuthtoken() != "";
+  }
 
   getuniqID() {
     var bak: string = "";
@@ -61,49 +69,39 @@ export class StorageService {
     return bak;
   }
 
-
   delete(storageKeys: storageKeys) {
-    return this.localStorage.remove(storageKeys).then(data => { return data; },
-      error => console.error(error));
+    return this.localStorage.remove(storageKeys).then(
+      data => {
+        return data;
+      },
+      error => console.error(error)
+    );
   }
 
-
-
-
   isRememberMe(): boolean {
-    if (!!localStorage.getItem('auth_token')) {
+    if (!!localStorage.getItem("auth_token")) {
       return true;
-    } else if (!!sessionStorage.getItem('auth_token')) {
+    } else if (!!sessionStorage.getItem("auth_token")) {
       return false;
-    }
-    else {
+    } else {
       return false;
     }
   }
 
   removeAllStorage() {
-    // if (!!localStorage.getItem(StorageID.UserAuthToken)) {
-    //   localStorage.removeItem(StorageID.UserAuthToken);
-    //   localStorage.removeItem(StorageID.UserI);
-    //   localStorage.removeItem(StorageID.hashedemail);
+    if (!!localStorage.getItem(storageKeys.authToken)) {
+      localStorage.removeItem(storageKeys.userInformation);
+      localStorage.removeItem(storageKeys.authToken);
 
-    // } else {
-    //   sessionStorage.removeItem('auth_token');
-    //   sessionStorage.removeItem('ui');
-    //   localStorage.removeItem(StorageID.hashedemail);
-    // }
+    } 
   }
 
   hasuniqID(): boolean {
-
-    return !!this.localStorage.getItem('auth_uid');
-
+    return !!this.localStorage.getItem("auth_uid");
   }
-
 }
 export enum StorageType {
-  LOCALSTORAGE = 'LOCALSTORAGE',
-  SessionStorage = 'LOCALSTORAGE',
-  Both = 'LOCALSTORAGE'
+  LOCALSTORAGE = "LOCALSTORAGE",
+  SessionStorage = "LOCALSTORAGE",
+  Both = "LOCALSTORAGE"
 }
-

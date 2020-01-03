@@ -1,70 +1,66 @@
 <div class="profile">
-    <div class="bg-profile">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 text-center profile-img">
-                <img [src]="doctor.ProfileImage" alt="" class="img-fluid rounded " srcset="">
-            </div>
-            <div class="col-sm-10 row doctor-details">
-                <span  class="col-sm-12">
-                    <span class="h2 font-weight-bold">{{doctor.JobTitle}}&nbsp;{{base.translate(doctor.NameEn,doctor.NameAr)}}</span>
-                </span>
+            <div class="col-sm-7 col-xs-12 text-center profile-details">
+                <div [ngStyle]="{'background-image': 'url(' + doctor.ProfileImage +')'}"
+                class="d-block mx-auto rounded-circle img-fluid"></div>
+                <span class="pt-3 h4 font-weight-bold">{{doctor.JobTitle}}&nbsp;{{base.translate(doctor.NameEn,doctor.NameAr)}}</span>
                 <p class="col-sm-12 desc">{{base.translate(doctor.Description,doctor.DescriptionAr)}}</p>
                 <p class="col-sm-12"><p-rating [(ngModel)]="doctor.Rate" [readonly]='true' [cancel]="false" ></p-rating></p>
-                <p class="col-sm-6">Overall rating from {{doctor.RateCount}} visitors</p>
-            </div>
-            </div>
-        </div>
-    </div>
-    <div class="profile-data">
-        <div class="container">
-            <div class="row ">
-                <div class="col-sm-6">
-                    <h2 class="h3 font-weight-bold">{{base.translate('Info')}}</h2>
-                    <p>{{doctor.JobTitle}} {{doctor.Info}}</p>
-                    <div class="row doctor-details col-sm-12">
-                        <p class="col-sm-12">
-                            <i class="fas fa-map-marker-alt doc-icon fa-md"></i>
-                            {{base.translate('address')}} {{base.translate(doctor.Address,doctor.AddressAr)}}
-                            <button class="btn btn-outline-secondary btn-map" (click)="openMap(doctor.Lat+','+doctor.Lng)" > <i class="fas fa-map-marked-alt"></i> {{base.translate('ViewMap')}}</button>
-                        </p>
-                        <p class="col-sm-6"><i class="fas fa-money-bill-wave-alt doc-icon fa-xs"></i> {{base.translate('fees')}} {{doctor.Fees}} {{base.translate('KD')}}</p>
-                        <p class="col-sm-6"><i class="far fa-clock doc-icon fa-xs"></i>{{base.translate('WTime')}} :{{doctor.Waitingtime}}</p>
-                    </div>
-                    <div *ngIf="doctor.Services.length>0 ">
-                        <h2 class="h3 font-weight-bold">{{base.translate('Services')}}</h2>
-                        <ul class="list-group service" *ngFor='let item of doctor.Services' >
-                            <li class="list-group-item active"> {{base.translate(item.NameEn,item.NameAr)}} </li>
-                            <li class="list-group-item"> {{base.translate(item.DescriptionEn,item.DescriptionAr)}} </li>
-                            <li class="list-group-item">{{base.translate('fees')}} :{{item.Fees}} {{base.translate('KD')}}</li>
-                        </ul>
-                    </div>
+                <p class="col-sm-12">Overall rating from {{doctor.RateCount}} visitors</p>
+                <div class="col-xs-12 about text-left">
+                    <h2 class="font-weight-bold">About {{doctor.JobTitle}} {{base.translate(doctor.NameEn,doctor.NameAr)}}</h2>
+                    <p> {{doctor.Info}}</p>
+                    <i class="fas fa-map-marker-alt doc-icon fa-md"></i>
+                    {{base.translate('address')}} {{base.translate(doctor.Address,doctor.AddressAr)}}
+                    <button class="btn btn-outline-secondary btn-map" (click)="openMap(doctor.Lat+','+doctor.Lng)" > <i class="fas fa-map-marked-alt"></i> {{base.translate('ViewMap')}}</button>
+                    <p><i class="fas fa-money-bill-wave-alt doc-icon fa-xs"></i> {{base.translate('fees')}} {{doctor.Fees}} {{base.translate('KD')}}</p>
+                 <p><i class="far fa-clock doc-icon fa-xs"></i>{{base.translate('WTime')}} :{{doctor.Waitingtime}}</p>
+                 
                 </div>
-                <div class="col-sm-6">
-                    <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item" *ngFor="let item of dayslist">
-                            <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
-                                {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
-                            </button>
-                            </li>
-                     </ul>
-                     <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item" *ngFor="let item of dayslist2">
-                            <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
-                                {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
-                            </button>
-                            </li>
-                     </ul>
-                     <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item" *ngFor="let item of dayslist3">
-                            <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
-                                {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
-                            </button>
-                            </li>
-                     </ul>
+                
+                 <div *ngIf="doctor.Services.length>0 ">
+                    <h2 class="h3 font-weight-bold">{{base.translate('Services')}}</h2>
+                    <ul class="list-group service" *ngFor='let item of doctor.Services' >
+                        <li class="list-group-item active"> {{base.translate(item.NameEn,item.NameAr)}} </li>
+                        <li class="list-group-item"> {{base.translate(item.DescriptionEn,item.DescriptionAr)}} </li>
+                        <li class="list-group-item">{{base.translate('fees')}} :{{item.Fees}} {{base.translate('KD')}}</li>
+                    </ul>
                 </div>
             </div>
-        </div>
+            <div class="col-sm-5 col-xs-12  profile-data">
+                    <div class="container-fluid">
+                        <div class="row ">
+                            <div class="col-xs-12 col-md-12 p-0 appointment-header">
+                                <h2 class="font-weight-bold text-center">Get an apointmnet</h2>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item" *ngFor="let item of dayslist">
+                                        <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
+                                            {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
+                                        </button>
+                                        </li>
+                                 </ul>
+                                 <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item" *ngFor="let item of dayslist2">
+                                        <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
+                                            {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
+                                        </button>
+                                        </li>
+                                 </ul>
+                                 <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item" *ngFor="let item of dayslist3">
+                                        <button class="btn btn-outline-secondary text-xs-center" [disabled]='isdoctorAvilableThisDay(item)' (click)="book(item)">
+                                            {{base.translate(item.NameEn,item.NameAr)}} {{base.translate('bookbtn')}}
+                                        </button>
+                                        </li>
+                                 </ul>
+                            </div>
+                        </div>
+                    </div>               
+            </div>
+            </div>
     </div>
-   
+    
 </div>

@@ -33,6 +33,10 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from 'src/services/user/user.service';
 import { SignupComponent } from './signup/signup.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { LaddaModule } from 'angular2-ladda';
+import { AppSharedModule } from './appshared.module';
+import { AuthGuard } from './auth.guard';
+
 
 
 @NgModule({
@@ -50,6 +54,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     FormsModule,
     BrowserAnimationsModule,
     TabViewModule,
+    AppSharedModule,
     CalendarModule,
     DialogModule,
     HttpClientModule,
@@ -57,7 +62,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ButtonModule,DropdownModule,InputTextModule,SidebarModule
   ],
   providers: [
-    StorageService,BaseService,LocalService,APIService,EncrypthelperService,HomeService,CoreService,
+    StorageService,BaseService,LocalService,APIService,EncrypthelperService,HomeService,CoreService,AuthGuard,
     HttpErrorHandlerService, DoctorsService,SpecialityService,UserService,
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
     { provide: 'SessionStorage', useFactory: getSessionStorage },
