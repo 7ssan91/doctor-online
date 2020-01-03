@@ -18,7 +18,7 @@ export class FilterComponent implements OnInit {
   doctors: Doctor[] = [];
   selectedArea: Area = new Area();
   selectedCity: City = new City();
-@Output() public getUserData = new EventEmitter();
+  @Output() public getUserData = new EventEmitter();
   specialities: Specialities[] = [];
   selectedspecialty: Specialities =new Specialities();
   searchKey = "";

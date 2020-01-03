@@ -32,6 +32,7 @@ import { SpecialityService } from 'src/services/speciality/speciality.service';
 import { LoginComponent } from './login/login.component';
 import { UserService } from 'src/services/user/user.service';
 import { SignupComponent } from './signup/signup.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { SignupComponent } from './signup/signup.component';
     CalendarModule,
     DialogModule,
     HttpClientModule,
+    CarouselModule,
     ButtonModule,DropdownModule,InputTextModule,SidebarModule
   ],
   providers: [

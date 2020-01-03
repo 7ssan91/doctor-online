@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { BaseService } from 'src/services/core/base.service';
 
 @Component({
-  selector: 'app-doctorview',
+  selector: 'doctorview',
   templateUrl: './doctorview.component.html',
   styleUrls: ['./doctorview.component.scss']
 })

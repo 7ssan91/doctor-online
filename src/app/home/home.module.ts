@@ -6,18 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+import {CarouselModule } from 'ngx-owl-carousel-o';
+import { FilterComponent } from '../shared/filter/filter.component';
+
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent,FilterComponent],
   imports: [
     CommonModule,
     FormsModule,
     DialogModule,
     DropdownModule,
+    CarouselModule,
     CalendarModule,
     RouterModule.forChild([
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
   ])
   ]
 })

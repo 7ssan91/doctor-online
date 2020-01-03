@@ -1,7 +1,11 @@
-@import url(
-  http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,400italic,700,700italic);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic);
-// @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: Lato, sans-serif;
@@ -19,10 +23,11 @@ $dark-color: #001430;
 $l-size: 24px;
 $n-size: 16px;
 $s-size: 14px;
-nav {
+.navbar {
+  box-shadow: 1px 1px 1px 1px #ddd;
   .navbar-brand {
     img {
-      width: 95px;
+      width: 100px;
     }
   }
   .navbar-nav {
@@ -40,6 +45,10 @@ nav {
   color: $main-color;
   border-bottom: 3px solid #DEB183;
   padding-bottom: 3px;
+}
+.slideInAnimate{
+  -webkit-animation: slideInDown 1.3s infinite linear;
+  animation: slideInDown 1.3s infinite linear;
 }
 // input design
 .inp {
@@ -114,68 +123,25 @@ nav {
 .dropdown.show{
   transition: .4s;
 }
-// select box
-.carousel-inner{
-  overflow: unset !important;
+// home-bg
+.owl-carousel .owl-item img{
+  height: 90vh;
 }
-.carousel-item {
+.home-bg{
   height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background-image: url(assets/imgs/banner3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
- 
-  .carousel-caption {
-    // background: red;
-    color: #001430;
-    top: 15%;
-    left: 40px;
-  }
-  h2 {
-    text-align: left;
-  }
-}
-.form-header {
-  background: #fff;
-  display: inline-flex;
-  float: left;
-  padding: 10px;
-  border-radius: 28px;
-  border: 1px solid $main-color;
-  &:before{
-    background: rgba(0, 0, 0, 0) url("../src/assets/imgs/banner-shape.png") no-repeat scroll 0 0;
-    top: 87.5%;
-    content: "";
-    height: 100%;
+  overflow: hidden;
+  .arrow i{
     position: absolute;
-    width: 100%;
-    pointer-events: none;
-  }
-  .ui-inputtext {
-    border: none;
-    border-right: 1px solid #ddd;
-    border-radius: 0%;
-  }
-  .ui-dropdown{
-    border: none;
-  }
-  .ui-calendar-button {
-    background: transparent;
-    color: #001430;
-    border: none;
-    &:enabled:hover {
-      background: transparent;
-      color: #001430;
-    }
-  }
-  button {
-    border-radius: 50%;
-    background: $main-color;
-    color: #fff;
+    bottom: 0;
+    font-size: 25px;
+    left: 50%;
   }
 }
+
 .banner-form-outer {
   border: 1px solid $gray-color;
   .banner-form {
@@ -213,7 +179,6 @@ nav {
 // end book-now
 //howToBook
 .howToBook {
-  background: #f7fbff;
   h2 {
     font-weight: 900;
     color: $dark-color;
@@ -222,54 +187,40 @@ nav {
   }
 }
 // end howToBook
-// Download App
-.downloadApp{
-  background: url(../src/assets/imgs/download_app.png) center center no-repeat;
-  height: 490px;
-  color: #fff;
-  h2{
-    font-size: 50px;
-  }
-  img{
-    margin: -80px 0;
-  }
+// Browser Doctor
+.browser-doctor{
+  background: #fafafa;
+  padding: 30px 0;
+  h2,i{
+    font-weight: 900;
+    color: #001430;
+    font-size: 48px;
+    text-transform: uppercase; }
+    .specs{
+      margin-top: 15px;
+      .list-group-item{
+        color: $dark-color !important;
+      }
+    }
+  
 }
 //end of Download App
-// newsletter
-.newsletter {
-  padding: 80px 0;
-  background: #f7fbff;
-  }
-  
-  .newsletter .content {
-  max-width: 650px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 2; }
-  .newsletter .content h2 {
-  color: #001430;
-  margin-bottom: 40px; }
-  .newsletter .content .form-control {
-  height: 50px;
-  border-color: #ffffff;
-  border-radius:0;
-  }
-  .newsletter .content.form-control:focus {
-  box-shadow: none;
-  border: 2px solid #001430;
-  }
-  .newsletter .content .btn {
-  min-height: 50px; 
-  border-radius:0;
-  background: #001430;
-  color: #fff;
-  font-weight:600;
-  }
-//end newsletter
+
 // footer
 .footer {
   background: #001430;
+  padding: 30px 15px;
+  h5{
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+a,p{
+color: #ffffff;
+text-decoration: none !important;
+background-color: transparent;
+-webkit-text-decoration-skip: objects;
+}
   p {
     color: #fff;
     a {
@@ -277,6 +228,51 @@ nav {
     }
   }
 }
+.social-bar{
+   ul.social{
+      li{
+          padding: 3px 0;
+          a i {
+              color: #333;
+              margin-right: 5px;
+              font-size:25px;
+              -webkit-transition: .5s all ease;
+              -moz-transition: .5s all ease;
+              transition: .5s all ease;
+          }
+          &:hover a i {
+              font-size:30px;
+              margin-top:-10px;
+          }
+      }
+}
+}
+.social-bar ul.social li a,
+#footer ul.quick-links li a{
+color:#ffffff;
+}
+#footer ul.quick-links li{
+padding: 3px 0;
+-webkit-transition: .5s all ease;
+-moz-transition: .5s all ease;
+transition: .5s all ease;
+}
+#footer ul.quick-links li a i{
+margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+  font-weight: 700;
+}
+
+@media (max-width:767px){
+#footer h5 {
+  padding-left: 0;
+  border-left: transparent;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+}
+}
+
 // end footer
 @media only screen and (max-width: 600px) {
   .carousel-item {
@@ -324,8 +320,8 @@ h2{
   color: #001430 !important;
   border-color: #001430 !important;
 }
-.howToBook h2{
-  font-size: 40px;
+.howToBook h2,.browser-doctor h2,.browser-doctor i{
+  font-size: 35px;
 }
 }
 // filter
@@ -409,6 +405,18 @@ h2{
 //doctor page
 .doctorList{
   background: #E2E6EA;
+  a:hover{
+    text-decoration: none;
+  }
+  .doctor-img .img-fluid{
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px;
+    position: relative;
+    top: 10px;
+    width: 150px;
+    background-size: cover;
+  }
   .doctor{
     background: #fff;
     border-radius: 10px;
@@ -529,7 +537,7 @@ h2{
 
 .form-label-group>input,
 .form-label-group>label {
-  padding: var(--input-padding-y) var(--input-padding-x);
+padding: 10px;
 }
 .form-label-group input::-webkit-input-placeholder {
   color: transparent;
@@ -552,8 +560,7 @@ h2{
 }
 
 .form-label-group input:not(:placeholder-shown) {
-  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-  padding-bottom: calc(var(--input-padding-y) / 3);
+ padding: 10px;
 }
 
 .form-label-group input:not(:placeholder-shown)~label {
