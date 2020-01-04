@@ -9,7 +9,7 @@
                 <p class="col-sm-12"><p-rating [(ngModel)]="doctor.Rate" [readonly]='true' [cancel]="false" ></p-rating></p>
                 <p class="col-sm-12">Overall rating from {{doctor.RateCount}} visitors</p>
                 <div class="col-xs-12 about text-left">
-                    <h2 class="font-weight-bold">About {{doctor.JobTitle}} {{base.translate(doctor.NameEn,doctor.NameAr)}}</h2>
+                    <h2 class="font-weight-bold"> <i class="fas fa-user-md color1"></i> &nbsp;About {{doctor.JobTitle}} {{base.translate(doctor.NameEn,doctor.NameAr)}}</h2>
                     <p> {{doctor.Info}}</p>
                     <i class="fas fa-map-marker-alt doc-icon fa-md"></i>
                     {{base.translate('address')}} {{base.translate(doctor.Address,doctor.AddressAr)}}

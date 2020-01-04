@@ -23,6 +23,9 @@ $dark-color: #001430;
 $l-size: 24px;
 $n-size: 16px;
 $s-size: 14px;
+.color1{
+  color: $main-color;
+}
 .navbar {
   box-shadow: 1px 1px 1px 1px #ddd;
   .navbar-brand {
