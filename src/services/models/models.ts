@@ -25,9 +25,9 @@ export class City {
     Id: number = -1;
     NameAr: string = "";
     NameEn: string = "";
-    CountryID: number;
-    SOrder: number;
-    Areas: Area[];
+    CountryID: number = -1;
+    SOrder: number = 0;
+    Areas: Area[] = [];
 }
 
 export class Country {
@@ -45,12 +45,12 @@ export class Country {
 
 export class Specialities {
     Id: number = -1;
-    NameAr: string;
-    NameEn: string;
-    DescriptionEn: string;
-    DescriptionAr: string;
-    SOrder: number;
-    Icon: string;
+    NameAr: string = "";
+    NameEn: string = "";
+    DescriptionEn: string = "";
+    DescriptionAr: string = "";
+    SOrder: number = 0;
+    Icon: string = "";
 
 }
 

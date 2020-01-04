@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { BaseService } from "src/services/core/base.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
@@ -58,13 +58,15 @@ export class FilterComponent implements OnInit {
   selectCity(cit: City) {
     this.selectedCity = cit;
   }
+
+
   selectArea(ar: Area) {
     this.selectedArea = ar;
     this.sp.getSpecialitiesForArea(ar.Id).subscribe((data: Specialities[]) => {
       this.specialities = data;
     });
   }
-  public search(data:Doctor[]){
+  public search(){
     this.isRequisting=true;
     this.selectedArea.Id;
     this.doc.getDoctors(this.searchKey,this.selectedspecialty.Id,1,this.selectedArea.Id).subscribe((searchDoc)=>{

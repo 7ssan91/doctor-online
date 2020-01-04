@@ -14,8 +14,8 @@ import { SpecialityService } from 'src/services/speciality/speciality.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
-  selectedCity:string;
+
+  selectedCity: string;
   redirecturl: string = "";
   spcialiytId: number = -1;
   Insuranceid: number = -1;
@@ -25,26 +25,19 @@ export class HomeComponent implements OnInit {
   searchkey: string = '';
   areaId = -1;
   autoreload: boolean = true;
-  offers:Offer[];
-  specs:Specialities[];
-  slides=[{
-    Id:1,
-    src:'../../assets/imgs/banner3.jpg'
-  },
-  {
-    Id:2,
-    src:'../../assets/imgs/doctor.png'
-  },
-  {
-    Id:3,
-    src:'../../assets/imgs/medical-background-with-doctor-close-up-vector-23738004.jpg'
-  },
-];
-  constructor(public base: BaseService, private sp:SpecialityService, private route: Router, http: HttpClient,private doc:DoctorsService, private acroute:ActivatedRoute) {
+  offers: Offer[];
+  specs: Specialities[];
+  slides = [{
+    Id: 1,
+    src: '../../assets/imgs/banner3.jpg'
+  }
+
+  ];
+  constructor(public base: BaseService, private sp: SpecialityService, private route: Router, http: HttpClient, private doc: DoctorsService, private acroute: ActivatedRoute) {
 
   }
- 
-   customOptions: OwlOptions = {
+
+  customOptions: OwlOptions = {
     // nav: true,
     autoWidth: true,
     loop: true,
@@ -58,14 +51,18 @@ export class HomeComponent implements OnInit {
   }
   scroll(el: HTMLElement) {
     el.scrollIntoView();
-}
+  }
+
+
+  filterFinishedNavigate(event) {
+this.route.navigate(['/en-kw/doctors']);
+  }
   ngOnInit() {
-    this.doc.getDoctors("",-1,1,-1,-1,-1).subscribe((data)=>{
-      this.doctors=data;
+    this.doc.getDoctors("", -1, 1, -1, -1, -1).subscribe((data) => {
+      this.doctors = data;
     });
-    this.sp.getSpeciality().subscribe((data)=>{
-      this.specs=data;
-      console.log(this.specs)
+    this.sp.getSpeciality().subscribe((data) => {
+      this.specs = data;
 
     })
 

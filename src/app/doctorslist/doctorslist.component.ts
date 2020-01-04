@@ -26,7 +26,9 @@ export class DoctorslistComponent implements OnInit {
   ngOnInit() {
     this.doctorlist$ = this.doc.$DoctorList.subscribe((doctors: Doctor[]) => {
       this.doctors = doctors;
+      
     });
+
     this.doctorlist = this.doc.getDoctors().subscribe(data => {});
   }
 

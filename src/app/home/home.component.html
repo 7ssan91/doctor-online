@@ -1,19 +1,19 @@
-<section class="home-bg"> 
-    <div class="home-filter" #homeFilter>
-        <div class="container">
-            <div class="row">
-                <h1 class="font-weight-bold pb-5">Find a doctor near you</h1>
-            </div>
-        </div>
-        <filter></filter>
-    </div>
+<section class="home-bg">
+  <div class="home-filter" #homeFilter>
     <div class="container">
-        <div class="row">
-            <a class="arrow" (click)="scroll(HowItWork)">
-                <i class="fa fa-chevron-down slideInAnimate font-weight-bold"></i>
-            </a>
-        </div>
+      <div class="row">
+        <h1 class="font-weight-bold pb-5">Find a doctor near you</h1>
+      </div>
     </div>
+    <filter (filterFinished)="filterFinishedNavigate($event)"></filter>
+  </div>
+  <div class="container">
+    <div class="row">
+      <a class="arrow" (click)="scroll(HowItWork)">
+        <i class="fa fa-chevron-down slideInAnimate font-weight-bold"></i>
+      </a>
+    </div>
+  </div>
 </section>
 <!-- <owl-carousel-o [options]="customOptions">
     <ng-container *ngFor="let slide of slides">
@@ -24,40 +24,40 @@
   </owl-carousel-o> -->
 <!-- how to book -->
 
-<section class="howToBook pt-5 pb-5 text-center" >
-    <div class="container margin-top-20">
-        <h2>How it work</h2>
-        <div class="row mb-30">
-            <div class="col-lg-4">
-                <img src="../assets/imgs/doctor.png" style="height: 100px;" alt="">
-                <h3 class="font-weight-bold">Search</h3>
-                <p>By Specialty, area,doctor name or Fees</p>
-            </div>
-            <div class="col-lg-4">
-                    <img src="../assets/imgs/doctors.png" style="height: 100px;" alt="">
-                    <h3 class="font-weight-bold">Compare & Choose</h3>
-                    <p>Based on real patients reviews</p>
-                </div>
-                <div class="col-lg-4">
-                        <img src="../assets/imgs/appointment-book.png" style="height: 100px;" alt="">
-                        <h3 class="font-weight-bold">Book your appointment</h3>
-                        <p>Pay at the clinic at no extra cost</p>
-                    </div>
-        </div>
+<section class="howToBook pt-5 pb-5 text-center" #HowItWork>
+  <div class="container margin-top-20">
+    <h2>How it work</h2>
+    <div class="row mb-30">
+      <div class="col-lg-4">
+        <img src="../assets/imgs/doctor.png" style="height: 100px;" alt="">
+        <h3 class="font-weight-bold">Search</h3>
+        <p>By Specialty, area,doctor name or Fees</p>
+      </div>
+      <div class="col-lg-4">
+        <img src="../assets/imgs/doctors.png" style="height: 100px;" alt="">
+        <h3 class="font-weight-bold">Compare & Choose</h3>
+        <p>Based on real patients reviews</p>
+      </div>
+      <div class="col-lg-4">
+        <img src="../assets/imgs/appointment-book.png" style="height: 100px;" alt="">
+        <h3 class="font-weight-bold">Book your appointment</h3>
+        <p>Pay at the clinic at no extra cost</p>
+      </div>
     </div>
+  </div>
 </section>
 <!-- how to book -->
 <!-- subscribe  -->
 <div class="browser-doctor">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-12 text-center">
-                <i class="fas fa-notes-medical"></i>
-                <h2 class="font-weight-bold">Browse doctors by top specialties</h2>
-            </div>
-                <ul class="col-xs-2 col-md-3 specs"  *ngFor="let item of specs" >
-                    <a href="#" class="list-group-item w-100 d-flex">{{base.translate(item.NameEn,item.NameAr)}}</a>
-                </ul>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 text-center">
+        <i class="fas fa-notes-medical"></i>
+        <h2 class="font-weight-bold">Browse doctors by top specialties</h2>
+      </div>
+      <ul class="col-xs-2 col-md-3 specs" *ngFor="let item of specs">
+        <a href="#" class="list-group-item w-100 d-flex">{{base.translate(item.NameEn,item.NameAr)}}</a>
+      </ul>
     </div>
+  </div>
 </div>
