@@ -46,6 +46,7 @@ import { AuthGuard } from './auth.guard';
     FooterComponent,
     LoginComponent,
     SignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
