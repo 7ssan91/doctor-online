@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { BaseService } from "src/services/core/base.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
 import { DoctorsService } from "src/services/doctor/doctor.service";
 import { Doctor, Specialities, City, Area } from "src/services/models/models";
 import { SpecialityService } from "src/services/speciality/speciality.service";

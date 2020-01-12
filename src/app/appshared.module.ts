@@ -6,9 +6,6 @@ import { FilterComponent } from './shared/filter/filter.component';
 import { LaddaModule } from 'angular2-ladda';
 
 
-
-
-
 @NgModule({
   imports: [
     CommonModule,

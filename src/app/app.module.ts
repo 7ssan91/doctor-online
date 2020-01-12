@@ -26,16 +26,14 @@ import { HomeService } from 'src/services/home/home.service';
 import { CoreService } from 'src/services/core/core.service';
 import { HttpErrorHandlerService } from 'src/services/core/http-error-handler.service';
 import { DoctorsService } from 'src/services/doctor/doctor.service';
-import { FilterComponent } from './shared/filter/filter.component';
-import {RatingModule} from 'primeng/rating';
 import { SpecialityService } from 'src/services/speciality/speciality.service';
 import { LoginComponent } from './login/login.component';
 import { UserService } from 'src/services/user/user.service';
 import { SignupComponent } from './signup/signup.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { LaddaModule } from 'angular2-ladda';
 import { AppSharedModule } from './appshared.module';
 import { AuthGuard } from './auth.guard';
+import { CountriesComponent } from './countries/countries.component';
 
 
 
@@ -46,7 +44,8 @@ import { AuthGuard } from './auth.guard';
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    CountriesComponent,
   ],
   imports: [
     BrowserModule,

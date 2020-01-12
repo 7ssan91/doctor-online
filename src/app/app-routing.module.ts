@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { DoctorslistComponent } from './doctorslist/doctorslist.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './auth.guard';
+import { CountriesComponent } from './countries/countries.component';
 
 
 const routes: Routes = [
@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'doctors', loadChildren: () => import('./doctorslist/doctorlist.module').then(m => m.DoctorlistPageModule) },
   { path: 'login', component: LoginComponent ,canActivate:[AuthGuard] },
   { path: 'register', component: SignupComponent ,canActivate:[AuthGuard]},
+  { path: 'countries', component: CountriesComponent},
   { path: '**', redirectTo: '' , pathMatch:'full'  },
+
 ];
 
 
