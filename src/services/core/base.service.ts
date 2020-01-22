@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User, Area, Country, dateModel } from '../models/models';
 import { StorageService } from './storage.service';
@@ -12,14 +12,13 @@ export class BaseService {
 
 
 
-    constructor(private storage: StorageService, private localization: LocalService, public enc: EncrypthelperService, ) { }
+    constructor(private storage: StorageService, private localization: LocalService, public enc: EncrypthelperService, @Inject('BASE_URL') private baseUrl: string) { }
 
 
 
 
 
-    isLoggedIn():boolean
-    {
+    isLoggedIn(): boolean {
         return this.storage.isLoggedIn();
     }
 
@@ -63,6 +62,68 @@ export class BaseService {
 
     }
 
+    getDefaultOpsFromLink(): Country {
+        let link = this.baseUrl;
+        if (link.includes('-kw')) {
+            return {
+                Id: 1,
+                NameAr: "الكويت",
+                NameEn: "Kuwait",
+                SiteLink: "-kw",
+                CurrancySymbolAr: "د.ك",
+                CurrancySymbolEn: "KD",
+                Code: "+956",
+                DecimalNumbers: 3,
+                ImageLink: "http://doctoronline4u.com/cdn/kuwait.png"
+            };
+        } else {
+            return {
+                Id: 2,
+                NameAr: "مصر",
+                NameEn: "EGYPT",
+                SiteLink: "-eg",
+                CurrancySymbolAr: "ج.م",
+                CurrancySymbolEn: "LE",
+                Code: "+2",
+                DecimalNumbers: 2,
+                ImageLink: "http://doctoronline4u.com/cdn/egypt.png",
+            };
+        }
+    }
+
+
+    getRedirectLocalURL() {
+        let route = '';
+        if (this.getDefaultOpsFromLink().Id == 1) {
+            let after = this.baseUrl.split(this.translate('/en-kw', '/ar-kw'))[1];
+            route = this.translate('/ar-kw', '/en-kw') + after;
+        } else {
+            let after = this.baseUrl.split(this.translate('/en-sa', '/ar-sa'))[1];
+            route = this.translate('/ar-eg', '/en-eg') + after;
+        }
+        return route;
+    }
+
+
+
+
+    getrouterlink(to) {
+        let ops = this.getDefaultOpsFromLink();
+        let isArabic = this.baseUrl.includes('/ar-');
+        let route = '';
+        switch (ops.Id) {
+            case 1:
+                route = isArabic ? '/ar-kw/' : '/en-kw/';
+                break;
+            case 2:
+                route = isArabic ? '/ar-eg/' : '/en-eg/';
+                break;
+            default:
+                route = isArabic ? '/ar-kw/' : '/en-kw/';
+                break;
+        }
+        return [route + to];
+    }
 
 
     getCountry() {

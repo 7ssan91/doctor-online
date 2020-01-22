@@ -11,15 +11,16 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'doctors', loadChildren: () => import('./doctorslist/doctorlist.module').then(m => m.DoctorlistPageModule) },
   { path: 'login', component: LoginComponent ,canActivate:[AuthGuard] },
-  { path: 'register', component: SignupComponent ,canActivate:[AuthGuard]},
-  { path: 'countries', component: CountriesComponent},
+  { path: 'signup', component: SignupComponent ,canActivate:[AuthGuard]},
   { path: '**', redirectTo: '' , pathMatch:'full'  },
 
 ];
 
 
 const country: Routes = [
-  { path: '', redirectTo: 'en-kw' , pathMatch:'full'  },
+  // { path: '', redirectTo: 'en-kw' , pathMatch:'full'  },
+  { path: '', component: CountriesComponent },
+
   { path: 'ar-kw', children: routes },
   { path: 'en-kw', children: routes },
 

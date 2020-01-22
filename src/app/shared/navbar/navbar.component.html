@@ -1,86 +1,86 @@
 <!-- NAVIGATION -->
 <nav class="navbar navbar-default navbar-expand-lg  static-top">
-    <div class="container">
-      <a class="navbar-brand"[routerLink]="['/home']" >
-            <img src="../../../assets/imgs/logo-website.png" alt="">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="base.getrouterlink('')">
+      <img src="../../../assets/imgs/logo-website.png" alt="">
+    </a>
+    <button (click)="display1 = true" pButton icon="pi pi-list" class="custom-toggler navbar-toggler" type="button">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+    </button>
+    <p-sidebar [(visible)]="display1" position="left">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="base.getrouterlink('/login')">Login
+            <span class="sr-only">(current)</span>
           </a>
-      <button (click)="display1 = true"  pButton icon="pi pi-list" class="custom-toggler navbar-toggler" type="button">
-            <!-- <span class="navbar-toggler-icon"></span> -->
-          </button>
-          <p-sidebar [(visible)]="display1" position="left">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" [routerLink]="['/login']">Login
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link " [routerLink]="['/register']">Sign up</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Find a Doctor</a>
-                  </li>
-                  <!-- <li class="nav-item">
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " [routerLink]="base.getrouterlink('/signup')">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Find a Doctor</a>
+        </li>
+        <!-- <li class="nav-item">
                     <a class="nav-link"(click)="showDialog()">Appointment</a> 
                   </li> -->
-                </ul>
-          </p-sidebar>
-      <div class="collapse navbar-collapse" >
-        <ul class="navbar-nav ml-auto">
+      </ul>
+    </p-sidebar>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
 
-          <ng-container *ngIf="!base.isLoggedIn(); else logedin"  >
+        <ng-container *ngIf="!base.isLoggedIn(); else logedin">
 
-          <li class="nav-item active" >
-            <a class="nav-link" [routerLink]="['en-kw/login']" >Login
-                  <span class="sr-only">(current)</span>
-                </a>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="base.getrouterlink('login')">Login
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link border" [routerLink]="['en-kw/register']">Sign up</a>
+            <a class="nav-link border" [routerLink]="base.getrouterlink('signup')">Sign up</a>
           </li>
         </ng-container>
         <ng-template #logedin>
           <li class="nav-item">
-            <a class="nav-link border" >{{userInfo.FullName}}</a>
+            <a class="nav-link border">{{userInfo.FullName}}</a>
           </li>
           <a class="nav-link border" (click)="logoutUser()">Logout</a>
 
         </ng-template>
 
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['en-kw/doctors']">Find a Doctor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['en-kw/countries']">Countries</a>
-          </li>
-          <!-- <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="base.getrouterlink('doctors')">Find a Doctor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['']">Countries</a>
+        </li>
+        <!-- <li class="nav-item">
             <a class="nav-link"(click)="showDialog()">Appointment</a> 
           </li> -->
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
-  <p-dialog [style]="{width: '30vw'}" [(visible)]="display" [transitionOptions]="'6ms'" position='top' modal='true'>
-    <div class="appointment-dialog">
+  </div>
+</nav>
+<p-dialog [style]="{width: '30vw'}" [(visible)]="display" [transitionOptions]="'6ms'" position='top' modal='true'>
+  <div class="appointment-dialog">
 
-        <label for="inp" class="inp">
-            <input type="text" id="inp" placeholder="&nbsp;">
-            <span class="label">Label</span>
-            <span class="border"></span>
-          </label>
-          <div class="form-group">
-              <label for="email">Email address:</label>
-              <input type="email" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email">
-              </div>
-              <div class="form-group">
-                  <label for="email">Email address:</label>
-                  <input type="email" class="form-control" id="email">
-                </div>  
-                <button pButton label='click'></button>
-    </div> 
-  </p-dialog>
-  <!-- END OF NAVIGATION -->
+    <label for="inp" class="inp">
+      <input type="text" id="inp" placeholder="&nbsp;">
+      <span class="label">Label</span>
+      <span class="border"></span>
+    </label>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <button pButton label='click'></button>
+  </div>
+</p-dialog>
+<!-- END OF NAVIGATION -->

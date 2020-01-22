@@ -65,6 +65,7 @@ import { CountriesComponent } from './countries/countries.component';
     HttpErrorHandlerService, DoctorsService,SpecialityService,UserService,
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
     { provide: 'SessionStorage', useFactory: getSessionStorage },
+    { provide: 'BASE_URL', useFactory: getBaseUrl }
   ],
   exports:[
     AppRoutingModule
@@ -79,4 +80,8 @@ export function getLocalStorage() {
 
 export function getSessionStorage() {
   return (typeof window !== "undefined") ? window.sessionStorage : null;
+}
+
+export function getBaseUrl() {
+  return document.location.href;
 }

@@ -35,12 +35,13 @@ export class Country {
     NameAr: string;
     NameEn: string;
     SiteLink: string;
-    CurrancySymbolAr: string;
-    CurrancySymbolEn: string;
-    Code: string;
-    DecimalNumbers: number;
-    HasBranch: boolean;
-    Cities: City[];
+    ImageLink: string;
+    CurrancySymbolAr?: string;
+    CurrancySymbolEn?: string;
+    Code?: string;
+    DecimalNumbers?: number;
+    HasBranch?: boolean;
+    Cities?: City[];
 }
 
 export class Specialities {
@@ -57,6 +58,7 @@ export class Specialities {
 export class Doctor {
     NameEn: string;
     NameAr: string;
+    slug: string;
     JobTitle: string;
     Address: string;
     AddressAr: string;

@@ -24,6 +24,17 @@ export class HomeService extends CoreService{
     );
 }
 
+getOPSCountry() {
+    return this.api.get<APIResult<Country[]>>(APIVS.V1, Apimethods.GetOPSCountry).pipe(
+        map((res: APIResult<Country[]>) => {
+            if (res.IsSucsess) {
+                return res.Result;
+            }
+        }),
+        catchError(this.handleError('getOPSCountry', []))
+    );
+}
+
 getBanners(type) {
     return this.api.get<APIResult<BannerModel[]>>(APIVS.V1, Apimethods.GetBanners, { type }).pipe(
         map((res: APIResult<BannerModel[]>) => {
