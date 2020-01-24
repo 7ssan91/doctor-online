@@ -17,7 +17,7 @@ export class APIService {
   _accessuser = 'Q3jATuSuhK9GnC2y0IGVuY29kZWQgc3RyaW5';
   _accesspassword = '5erAOP54LJIKLQcyXT8C';
   appversion = '1.0.0';
-  loacl: boolean = true;
+  loacl: boolean = false;
 
   constructor(private http: HttpClient, public base: BaseService) {
     this.setAPiSettings(APIVS.V1);

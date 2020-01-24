@@ -8,7 +8,7 @@ import { CountriesComponent } from './countries/countries.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'doctors', loadChildren: () => import('./doctorslist/doctorlist.module').then(m => m.DoctorlistPageModule) },
   { path: 'login', component: LoginComponent ,canActivate:[AuthGuard] },
   { path: 'signup', component: SignupComponent ,canActivate:[AuthGuard]},

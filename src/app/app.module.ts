@@ -44,7 +44,6 @@ import { CountriesComponent } from './countries/countries.component';
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent,
     CountriesComponent,
   ],
   imports: [

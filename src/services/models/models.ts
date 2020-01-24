@@ -15,19 +15,19 @@ export class LoginResponse {
 
 export class Area {
     Id: number = -1;
-    NameAr: string = "";
-    NameEn: string = "";
-    CityId: number;
-    SOrder: number;
+    NameAr?: string = "";
+    NameEn?: string = "";
+    CityId?: number;
+    SOrder?: number;
 }
 
 export class City {
     Id: number = -1;
-    NameAr: string = "";
-    NameEn: string = "";
-    CountryID: number = -1;
-    SOrder: number = 0;
-    Areas: Area[] = [];
+    NameAr?: string = "";
+    NameEn?: string = "";
+    CountryID?: number = -1;
+    SOrder?: number = 0;
+    Areas?: Area[] = [];
 }
 
 export class Country {
@@ -46,12 +46,12 @@ export class Country {
 
 export class Specialities {
     Id: number = -1;
-    NameAr: string = "";
-    NameEn: string = "";
-    DescriptionEn: string = "";
-    DescriptionAr: string = "";
-    SOrder: number = 0;
-    Icon: string = "";
+    NameAr?: string = "";
+    NameEn?: string = "";
+    DescriptionEn?: string = "";
+    DescriptionAr?: string = "";
+    SOrder?: number = 0;
+    Icon?: string = "";
 
 }
 
